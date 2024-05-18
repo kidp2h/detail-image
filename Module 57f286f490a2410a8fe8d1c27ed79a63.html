@@ -1,0 +1,677 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Module</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="57f286f4-90a2-410a-8fe8-d1c27ed79a63" class="page sans"><header><h1 class="page-title">Module</h1><p class="page-description"></p></header><div class="page-body"><ul id="dbc34795-823d-44ce-9c71-7aacb3b83cb6" class="toggle"><li><details open=""><summary>Module hệ thống</summary><ul id="76a8e310-e39a-46fe-90c5-8385880837a7" class="toggle"><li><details open=""><summary>Nhóm người dùng</summary><figure id="29e11f88-330d-45e7-afc1-64db41e45335" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled.png"/></a></figure></details></li></ul><ul id="6af62cff-54be-4862-801b-75add2b88fe3" class="bulleted-list"><li style="list-style-type:disc">Tài khoản người dùng</li></ul><ul id="74f7b844-7c97-4c97-839f-c593b0346da8" class="toggle"><li><details open=""><summary>Hệ thống phân quyền</summary><ul id="c47d50eb-9114-4e37-bcf7-3e2ef493bb35" class="toggle"><li><details open=""><summary>Phân quyền nhóm người dùng</summary><figure id="150a2537-07fa-40fe-b94f-1842456daa22" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%201.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%201.png"/></a></figure></details></li></ul><ul id="4a718143-62b9-42b7-9eb4-e1fb10b12816" class="toggle"><li><details open=""><summary>Phân quyền theo chi nhánh</summary><figure id="f6192555-367a-4b1e-829f-63f5ff64c015" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%202.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%202.png"/></a></figure></details></li></ul></details></li></ul><ul id="f65f146e-1018-4b80-b1b7-5c0d14b61f15" class="toggle"><li><details open=""><summary>Quản lý chi nhánh</summary><figure id="3d06e551-a1ef-4fd6-8e70-c71368119bf2" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%203.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%203.png"/></a></figure></details></li></ul><ul id="558c8ae7-1264-411b-af79-8dd858845c5c" class="toggle"><li><details open=""><summary>Cấu hình hệ thống</summary><figure id="6f2c0759-76f2-457b-b1c7-047bbe117c77" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%204.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%204.png"/></a></figure></details></li></ul><ul id="28bcf130-5cc7-4f0b-8e67-9eec27c0d0ed" class="toggle"><li><details open=""><summary>Quản lý chứng từ</summary><figure id="d6eb9a05-f52a-48cb-958d-b22e7727d62f" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%205.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%205.png"/></a></figure></details></li></ul><ul id="52b3a4f9-7ceb-4be3-833d-4de292463939" class="toggle"><li><details open=""><summary>Quản lý nhật kí hệ thống</summary><ul id="bcadb5c2-8977-44ef-b749-4b6fb01190ab" class="bulleted-list"><li style="list-style-type:disc">Lưu lịch sử hệ thống<figure id="4547db81-93da-4b36-8f9f-6560581bdd9c" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%206.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%206.png"/></a></figure></li></ul></details></li></ul><ul id="ba6d32a2-5556-4954-9514-2b64145e15d3" class="toggle"><li><details open=""><summary>Quản lý máy in</summary><ul id="9ab0f3bd-f289-4484-9fb2-bf6cf3481bc5" class="bulleted-list"><li style="list-style-type:disc">Thiết lập máy in<figure id="a724ebd7-c829-4cd3-8f47-37c8ffdf2453" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%207.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%207.png"/></a></figure></li></ul></details></li></ul><ul id="bbc3e774-8165-4b2d-97ae-5553fd008710" class="toggle"><li><details open=""><summary>Quản lý đầu kỳ công nợ khách hàng</summary><figure id="38159532-5ab8-4b0a-81c9-3e70a5f642b3" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%208.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%208.png"/></a></figure></details></li></ul><ul id="710bddb9-976b-43db-90f7-402a6e6cfdb0" class="toggle"><li><details open=""><summary>Quản lý đầu kỳ công nợ NCC</summary><figure id="b6142c62-eb2f-4139-acb6-302199c5abff" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%209.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%209.png"/></a></figure></details></li></ul></details></li></ul><ul id="ea28f1da-dcc2-4e10-8679-cfef250583bd" class="toggle"><li><details open=""><summary>Module bán hàng</summary><ul id="1c6fd897-aba7-478a-8064-bfde3733c79c" class="toggle"><li><details open=""><summary>Hiển thị danh sách bàn</summary><figure id="d64314a1-16d6-44fd-95b2-3a392e740e98" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2010.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2010.png"/></a></figure></details></li></ul><ul id="38360982-09ae-4a50-89fd-f879a663ade2" class="toggle"><li><details open=""><summary>Hiển thị danh sách sản phẩm của bàn đã chọn và danh sách sản phẩm để thêm</summary><figure id="93088190-4cbc-455b-accd-303b2df294e5" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2011.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2011.png"/></a></figure></details></li></ul><ul id="f685007c-24bd-4be3-baba-3e9c8ed99406" class="toggle"><li><details open=""><summary>In hoá đơn</summary><figure id="d3bb9bcd-9582-4b33-b8ee-e0f4c37d7d81" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2012.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2012.png"/></a></figure></details></li></ul><ul id="daa69ab7-3d86-4a0c-bc7b-e3929ebb8e2b" class="toggle"><li><details open=""><summary>In bếp</summary><figure id="ec29c5c3-0c6e-4bee-987e-c80e31af2f5a" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2013.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2013.png"/></a></figure></details></li></ul><ul id="fb71f89b-a429-446c-8968-f35158a428a2" class="toggle"><li><details open=""><summary>Lưu hoá đơn</summary></details></li></ul><ul id="51dbbee3-e0bf-468c-8592-563717e2125a" class="toggle"><li><details open=""><summary>Ghép bàn</summary><figure id="e2f39cbf-61fd-4ef2-b923-d9a2a182f854" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2014.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2014.png"/></a></figure></details></li></ul><ul id="ec73adb8-b1e3-44c7-9648-6b052e7f1ed3" class="toggle"><li><details open=""><summary>Chuyển bàn</summary><figure id="ddc89e76-a51f-4693-a468-d7e4c1c6f829" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2015.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2015.png"/></a></figure></details></li></ul><ul id="eedcea90-40f0-4b76-960f-a0895b74fb02" class="toggle"><li><details open=""><summary>Mở rộng</summary><ul id="b2142fbf-e37c-4b03-9a53-fa4d132e9bc3" class="toggle"><li><details open=""><summary>Mở ca</summary><figure id="fff1b069-ddd8-43c6-a34c-09079234b47b" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2016.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2016.png"/></a></figure></details></li></ul><ul id="55ddf110-89cd-4c2e-80c1-f116cbd094a9" class="toggle"><li><details open=""><summary>Thêm hàng</summary></details></li></ul><ul id="24a19a78-1351-4c86-8b70-1ab38b87ad09" class="toggle"><li><details open=""><summary>VIP</summary><figure id="8cc9e9f4-6670-4397-880c-8c5365563be6" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2017.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2017.png"/></a></figure></details></li></ul><ul id="f1bd1155-12d4-4bcb-a63c-6b8bd0d461b0" class="toggle"><li><details open=""><summary>Chương trình khuyến mãi</summary></details></li></ul><ul id="40af6c0d-d393-40b3-bc09-c4723e12f7c8" class="toggle"><li><details open=""><summary>Danh sách trả món</summary><figure id="cc37cf81-adad-419a-9ac5-4b51f04795d9" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2018.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2018.png"/></a></figure></details></li></ul><ul id="1e116362-ff29-4982-8ac5-7a5b0d06e373" class="toggle"><li><details open=""><summary>Hiển thị chi tiết hoá đơn</summary><figure id="f42a8f98-e7b0-4438-bfac-2ff56bb3476f" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2019.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2019.png"/></a></figure></details></li></ul><ul id="8f157bf3-9f7b-44f8-a46e-bb5a9cb3cdbe" class="toggle"><li><details open=""><summary>Kết ca</summary><figure id="202edbb3-e333-4423-b037-2216c1c2f51c" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2020.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2020.png"/></a></figure></details></li></ul></details></li></ul></details></li></ul><ul id="ddcb9e51-9dd2-4a8c-9556-25587af0bd74" class="toggle"><li><details open=""><summary>Module sản phẩm (hàng hoá)</summary><ul id="cff7e4a0-d6a5-41ad-b6e9-696f5fed7c9e" class="toggle"><li><details open=""><summary>Nhóm hàng hoá</summary><figure id="d8ed3726-ba02-4aa7-bb93-a949d9ba0f89" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2021.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2021.png"/></a></figure></details></li></ul><ul id="833e1fca-1953-4858-9051-79db5c4d42d8" class="toggle"><li><details open=""><summary>Chi tiết nhóm hàng hoá</summary><figure id="a75af88b-8261-491a-9a53-d7730c07df83" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2022.png"><img style="width:789px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2022.png"/></a></figure></details></li></ul><ul id="5086fbd4-ad0e-4d25-9b64-a45eac2acc98" class="toggle"><li><details open=""><summary>Phân nhóm hàng theo chi nhánh</summary><figure id="65336c18-27eb-4812-a601-49c129e3651e" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2023.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2023.png"/></a></figure></details></li></ul></details></li></ul><ul id="bcb6b8a6-3a18-41d8-8626-5f9bc6f5eb17" class="toggle"><li><details open=""><summary>Quản lý hàng hoá</summary><ul id="0d19124b-373f-4f58-9fe2-ccd953dd9fff" class="toggle"><li><details open=""><summary>Nhóm hàng hoá</summary><figure id="5dc945f0-9f0f-4aed-abd2-8b1e35ad71ef" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2021.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2021.png"/></a></figure></details></li></ul><ul id="300ebc3c-eb59-4a07-9273-7730d4f5c627" class="toggle"><li><details open=""><summary>Chi tiết nhóm hàng hoá</summary><figure id="87410e44-718c-4bee-9e10-3d40ea36b4d0" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2022.png"><img style="width:789px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2022.png"/></a></figure></details></li></ul><ul id="021649e8-dc66-4c9a-8c66-cbffc760273e" class="toggle"><li><details open=""><summary>Phân nhóm hàng theo chi nhánh</summary><figure id="bf89b67a-b714-4508-bc72-f4d1c223c85f" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2023.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2023.png"/></a></figure></details></li></ul><ul id="24ecb63c-a0f4-4382-a07a-c0cd224af2bf" class="toggle"><li><details open=""><summary>Giá hàng hoá</summary><ul id="214d9964-31f2-47ce-b321-52114122455b" class="bulleted-list"><li style="list-style-type:disc">Thiết lập bảng giá<figure id="b326012f-bd90-4b96-acdc-3f969bd10ec3" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2024.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2024.png"/></a></figure></li></ul><ul id="bbe196bb-2164-45a4-81e7-52e980db2504" class="bulleted-list"><li style="list-style-type:disc">Liên kết bảng giá<figure id="4b7d05ad-f416-44d8-9759-4172c8c24a96" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2025.png"><img style="width:624px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2025.png"/></a></figure></li></ul></details></li></ul></details></li></ul><ul id="3b20b4c5-cad6-434e-b383-8267aa3d3b8c" class="toggle"><li><details open=""><summary>Module quản lý khu vực bán hàng</summary><figure id="034523c0-eed5-445a-89b8-7982672c105f" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2026.png"><img style="width:867px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2026.png"/></a></figure><figure id="f426ea5b-cf31-484a-907c-7aa2a296a4ef" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2027.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2027.png"/></a></figure><figure id="388f20b4-61d9-4fb9-b7cb-1cb68ef488c9" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2028.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2028.png"/></a></figure></details></li></ul><ul id="48710819-be78-4291-a39f-99e54312db75" class="toggle"><li><details open=""><summary>Quản lý thời điểm bán hàng</summary><figure id="02a3370c-3e7f-4023-a418-283eea824db1" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2029.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2029.png"/></a></figure></details></li></ul><ul id="0e54bfc5-1aab-408a-abae-360edd93a924" class="toggle"><li><details open=""><summary>Quản lý kho hàng</summary><figure id="81bbba07-b6cc-4edc-b08c-c253d9b51bad" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2030.png"><img style="width:941px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2030.png"/></a></figure></details></li></ul><ul id="48a3f0fb-cc8a-4fb7-a7f9-2434d3012606" class="toggle"><li><details open=""><summary>Module quản lý đơn vị tính</summary><figure id="efa9d8ed-a7ef-41ba-99f3-9b464d9cfc55" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2031.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2031.png"/></a></figure></details></li></ul><ul id="0520a9b3-055e-450e-a75e-533892e00f6a" class="toggle"><li><details open=""><summary>Module quản lý khách hàng</summary><ul id="e4969de6-a9ca-446a-8c5e-b97ecd42847e" class="toggle"><li><details open=""><summary>Quản lý khách hàng</summary><figure id="55d9ab1e-c7c8-4894-aa9e-ff0bd8e34751" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2032.png"><img style="width:861px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2032.png"/></a></figure><figure id="3965d50e-ec6a-4789-8f44-326accfeec92" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2033.png"><img style="width:847px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2033.png"/></a></figure><figure id="844ec609-fb7b-44d9-b8e0-a4c5bd4f8c86" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2034.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2034.png"/></a></figure></details></li></ul><ul id="a6edb291-ba78-438d-a42d-540b488694af" class="toggle"><li><details open=""><summary>Nhóm khách hàng</summary><figure id="e3a9c45f-0fa4-4f4b-907f-e32f48921ca5" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2035.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2035.png"/></a></figure></details></li></ul></details></li></ul><ul id="25ef8666-bca4-49ca-b9e1-c9076e729e2d" class="toggle"><li><details open=""><summary>Module quản lý nhà cung cấp</summary><ul id="86647b4b-9770-49a0-89f0-66e000768a38" class="toggle"><li><details open=""><summary>Quản lý NCC</summary><figure id="fb316c03-32de-4a01-aaf7-e2658d352bc2" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2036.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2036.png"/></a></figure><figure id="3ad95c7f-206b-412e-86e5-5dde96c10ce2" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2037.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2037.png"/></a></figure></details></li></ul></details></li></ul><ul id="9244f0db-42b6-4b6f-a4d2-f3c3cfc3f7e0" class="toggle"><li><details open=""><summary>Module quản lý shipper</summary><ul id="5d443bc8-45c2-4576-8d74-c9ae33954ae4" class="toggle"><li><details open=""><summary>Quản lý shipper</summary><figure id="f02f5389-c0ad-48cf-9e67-9b537a49ca67" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2038.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2038.png"/></a></figure><figure id="174b5a9f-536a-42f0-a284-6976f3a12933" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2039.png"><img style="width:881px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2039.png"/></a></figure></details></li></ul></details></li></ul><ul id="2c615e23-9a2e-41b0-ae69-883672d71f49" class="toggle"><li><details open=""><summary>Module chương trình khuyến mãi</summary><ul id="234e5b81-3602-461c-ab75-f9cf93e3f284" class="toggle"><li><details open=""><summary>Quản lý chương trình khuyến mãi</summary><figure id="90862056-7c63-4460-b5b9-958c0d5f3d3f" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2040.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2040.png"/></a></figure><figure id="ce653513-4a19-44e6-b6fc-b3a6743edbeb" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2041.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2041.png"/></a></figure></details></li></ul><ul id="a427d844-2762-41f7-baab-ad00e908dc10" class="toggle"><li><details open=""><summary>Quản lý mức chiết khấu</summary><figure id="bcad4878-e662-4333-b296-061bfeb15b8a" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2042.png"><img style="width:777px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2042.png"/></a></figure></details></li></ul></details></li></ul><ul id="25dc9ab0-bb3c-4fdf-aac4-262bcee144a9" class="toggle"><li><details open=""><summary>Module quản lý thu chi</summary><ul id="37c0f8bc-7035-4a3b-83f2-9ec25cd3461f" class="toggle"><li><details open=""><summary>Quản lý ngân quỹ</summary><figure id="cc1a60fb-ff7e-48a9-b128-aef53a8a4851" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2043.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2043.png"/></a></figure></details></li></ul><ul id="78659e48-e2ec-4c84-80cc-870dec8bb210" class="toggle"><li><details open=""><summary>Quản lý chi phí</summary><figure id="4c9eb2e9-93d9-46a9-97be-b681e385ab54" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2044.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2044.png"/></a></figure></details></li></ul><ul id="b0dce08f-48c3-4ebc-92f9-8419a55a98ac" class="toggle"><li><details open=""><summary>Quản lý phiếu chi tiền</summary><figure id="eeb51d7b-17d3-4c6d-9543-c641608d3d68" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2045.png"><img style="width:975px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2045.png"/></a></figure></details></li></ul><ul id="38899c96-90e6-4442-9477-3f5ee0a46a24" class="toggle"><li><details open=""><summary>Quản lý phiếu thu tiền</summary><figure id="ade75912-eb0b-41aa-b01a-9e49fd06e82b" class="image"><a href="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2046.png"><img style="width:652px" src="Module%2057f286f490a2410a8fe8d1c27ed79a63/Untitled%2046.png"/></a></figure></details></li></ul></details></li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
